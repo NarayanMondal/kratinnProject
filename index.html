@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sunita Sharma - Healthy Daily Report</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: brown;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .report-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .report-container .section-heading {
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      .report-container .section-heading:first-child {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="report-container">
+      <h1 class="text-center">Sunita Sharma - Healthy Daily Report</h1>
+
+      <div class="section-heading">Personal Information:</div>
+      <p>Name: Sunita Sharma</p>
+      <p>Age: 65</p>
+
+      <div class="section-heading">Daily Activities:</div>
+      <ul id="activities-list" class="list-group">
+        <li class="list-group-item">
+          Started the day with a brisk walk in the park.
+        </li>
+        <li class="list-group-item">
+          Prepared a nutritious breakfast with whole grains and fruits.
+        </li>
+        <li class="list-group-item">
+          Attended a yoga class to improve flexibility and mindfulness.
+        </li>
+      </ul>
+
+      <div class="section-heading">Health Summary:</div>
+      <p>Overall Health: <span id="health-status">Good</span></p>
+      <p>Blood Pressure: <span id="blood-pressure">120/80 mmHg</span></p>
+      <p>Heart Rate: <span id="heart-rate">70 bpm</span></p>
+      <p>Weight: <span id="weight">65 kg</span></p>
+
+      <div class="section-heading">Notes:</div>
+      <p id="notes">
+        Feeling energetic and positive today. Taking care of both physical and
+        mental well-being.
+      </p>
+
+      <div class="form-group">
+        <label for="new-activity">Add New Activity:</label>
+        <input type="text" id="new-activity" class="form-control" />
+      </div>
+      <button id="add-activity-btn" class="btn btn-primary">Add</button>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          // Add new activity
+          $("#add-activity-btn").click(function () {
+            var newActivity = $("#new-activity").val();
+            if (newActivity !== "") {
+              $("#activities-list").append(
+                '<li class="list-group-item">' + newActivity + "</li>"
+              );
+              $("#new-activity").val("");
+            }
+          });
+
+          // Update health status
+          var overallHealth = "Good";
+          if (overallHealth === "Good") {
+            $("#health-status").addClass("text-success");
+          } else if (overallHealth === "Fair") {
+            $("#health-status").addClass("text-warning");
+          } else {
+            $("#health-status").addClass("text-danger");
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>
